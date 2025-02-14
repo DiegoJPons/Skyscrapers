@@ -8,10 +8,14 @@
 #define MAX_LENGTH 8
 #define MAX_SEQUENCE_CAP  40320
 
+
 //Required:
 int initialize_board(const char *initial_state, const char *keys, int size);
-int solve(const char *initial_state, const char *keys, int size);
-
+void solve(const char *initial_state, const char *keys, int size);
+void current_board();
+bool winning_board();
+bool duplicate_piece(char piece, int row, int col);
+bool key_violation(char piece, int row, int col);
 
 /* Hints from our solution (feel free to use or ignore):
 
