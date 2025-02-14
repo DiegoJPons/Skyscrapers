@@ -169,6 +169,9 @@ void current_board () {
 			
 			}
 
+			if(top_key[col] == 0) {
+				return false;
+			}
 			if(vis_from_top != top_key[col]) {
 				return true;
 			}
@@ -194,6 +197,9 @@ void current_board () {
 				
 			}
 
+			if(bottom_key[col] == 0) {
+				return false;
+			}
 			if(vis_from_bottom != bottom_key[col]) {
 				return true;
 			}
@@ -221,6 +227,9 @@ void current_board () {
 				
 			}
 
+			if(left_key[row] == 0) {
+				return false;
+			}
 			if(vis_from_left != left_key[row]) {
 				return true;
 			}
@@ -246,6 +255,9 @@ void current_board () {
 				
 			}
 
+			if(right_key[row] == 0) {
+				return false;
+			}
 			if(vis_from_right != right_key[row]) {
 				return true;
 			}
