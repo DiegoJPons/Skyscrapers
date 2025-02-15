@@ -148,8 +148,6 @@ void current_board () {
 		if(piece == '-') {
 			return false;
 		}
-
-		printf("Duplicate piece: %c, row: %d, col: %d\n", piece, row, col);
 		int vis_from_top = 1;
 		int vis_from_bottom = 1;
 		int vis_from_left = 1;
