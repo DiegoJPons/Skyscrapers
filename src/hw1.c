@@ -24,6 +24,9 @@ int initialize_board(const char *initial_state, const char *keys, int size) {
 	int k = 0;
 	for(int i=0; i < size; i++) {
 		for( int j=0; j < size; j++) {
+			if(duplicate_piece(initial_state[k],i, j) || key_violation(initial_state[k], i, j)) {
+				return 0;
+			}
 			board[i][j] = initial_state[k++];
 		}
 	}
@@ -91,6 +94,9 @@ void current_board () {
     }
 
 	bool duplicate_piece(char piece, int row, int col) {
+		if(piece == '-') {
+			return false;
+		}
 		for(int i=0; i < length; i++) {
 			if (board[i][col] == piece && i != row) {
 				return true;
@@ -139,7 +145,9 @@ void current_board () {
 	}
 
 	bool key_violation(char piece, int row, int col) {
-
+		if(piece == '-') {
+			return false;
+		}
 		int vis_from_top = 1;
 		int vis_from_bottom = 1;
 		int vis_from_left = 1;
