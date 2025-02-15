@@ -185,7 +185,6 @@ void current_board () {
 			
 			}
 				if(top_key[col] != 0 && vis_from_top != top_key[col]) {
-					printf("debug 1");
 					return true;
 				}
 			
@@ -211,7 +210,6 @@ void current_board () {
 				
 			}
 				if(bottom_key[col] != 0 && vis_from_bottom != bottom_key[col]) {
-					printf("debug 2");
 					return true;
 				}
 			
@@ -241,7 +239,6 @@ void current_board () {
 			}
 
 				if(left_key[row] != 0 && vis_from_left != left_key[row]) {
-					printf("debug 3, left_key: %d, vis from left: %d",left_key[row], vis_from_left );
 					return true;
 				}
 
@@ -267,7 +264,6 @@ void current_board () {
 			}
 
 				if(right_key[row] != 0 && vis_from_right != right_key[row]) {
-					printf("debug 4");
 					return true;
 				}
 		}
