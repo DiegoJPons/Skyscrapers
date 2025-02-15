@@ -138,7 +138,6 @@ void current_board () {
 	bool last_piece_by_col(int row, int col) {
 		int missing_pieces = 0;
 		for(int j=0; j < length; j++) {
-			printf("%d, %d, %d, %c\n", j , row, col, board[row][j]);
 			if(j != col) {
 				if(board[row][j] == '-') {
 					missing_pieces += 1;
@@ -167,25 +166,26 @@ void current_board () {
 		if(last_piece_by_row(row, col)) {
 			// Checks key violation for top key.
 			if(0 == row) {
-				current_height = piece - '0';
+				current_height = piece;
 			}
 			else {
-				current_height = board[0][col] - '0';
+				current_height = board[0][col];
 			}
 			for (int i = 1; i < length; i++) {
 				if(i == row) {
-					if(current_height < piece - '0') {
+					if(current_height < piece) {
 						vis_from_top += 1;
-						current_height = piece - '0';
+						current_height = piece;
 					}
 				}
-				else if (current_height < board[i][col] - '0') {
+				else if (current_height < board[i][col]) {
 					vis_from_top += 1;
-					current_height = board[i][col] - '0';
+					current_height = board[i][col];
 				}
 			
 			}
 				if(top_key[col] != 0 && vis_from_top != top_key[col]) {
+					printf("debug 1");
 					return true;
 				}
 			
@@ -211,6 +211,7 @@ void current_board () {
 				
 			}
 				if(bottom_key[col] != 0 && vis_from_bottom != bottom_key[col]) {
+					printf("debug 2");
 					return true;
 				}
 			
@@ -220,16 +221,16 @@ void current_board () {
 
 			// Checks key violation for left key;
 			if(0 == col) {
-				current_height = piece - '0';
+				current_height = piece ;
 			}
 			else {
 				current_height = board[row][0];
 			}
 			for (int j = 1; j < length; j++) {
 				if(j == col) {
-					if(current_height < piece - '0') {
+					if(current_height < piece) {
 						vis_from_left += 1;
-						current_height = piece - '0';
+						current_height = piece;
 					}
 				}
 				else if (current_height < board[row][j]) {
@@ -240,21 +241,22 @@ void current_board () {
 			}
 
 				if(left_key[row] != 0 && vis_from_left != left_key[row]) {
+					printf("debug 3, left_key: %d, vis from left: %d",left_key[row], vis_from_left );
 					return true;
 				}
 
 			// Checks key violation for right key;
 			if(length - 1 == col) {
-				current_height = piece - '0';
+				current_height = piece;
 			}
 			else {
 				current_height = board[row][length-1];
 			}
 			for (int j = length - 2; j >=0; j--) {
 				if(j == col) {
-					if(current_height < piece - '0') {
+					if(current_height < piece) {
 						vis_from_right += 1;
-						current_height = piece - '0';
+						current_height = piece;
 					}
 				}
 				else if (current_height < board[row][j]) {
@@ -265,6 +267,7 @@ void current_board () {
 			}
 
 				if(right_key[row] != 0 && vis_from_right != right_key[row]) {
+					printf("debug 4");
 					return true;
 				}
 		}
