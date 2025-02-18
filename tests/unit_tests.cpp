@@ -85,7 +85,7 @@ TEST_F(solver_tests, board4x4) {
 //Can be solved without part 3
 TEST_F(solver_tests, board4x4v1_withValues){
     const char* init_board = "3-2-431-1-4--1-4";
-    const char* init_keys = "2124242133212133";
+    const char* init_keys = "2124242121333321";
     char board_array[MAX_LENGTH][MAX_LENGTH] = {
     {'$', '<', 'Y', '%', 'm', '-', 'Z', 'g'},
     {'_', '|', '-', '>', ',', 'I', 'd', '3'},
