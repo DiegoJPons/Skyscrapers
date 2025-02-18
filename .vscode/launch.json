@@ -1,6 +1,7 @@
 {
     "version": "0.2.0",
     "configurations": [
+
         {
             "type": "cppdbg",
             "request": "launch",
@@ -15,7 +16,7 @@
             "request": "launch",
             "name": "Run Solver",
             "program": "${workspaceRoot}/build/hw1_solver",
-			"args": ["2", "----", "12211221"],
+			"args": ["4", "3-2-431-1-4--1-4", "2124242133212133"],
             "cwd": "${workspaceFolder}",
             "preLaunchTask": "CMake: build"
         },
