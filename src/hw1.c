@@ -98,8 +98,8 @@ int initialize_board(const char *initial_state, const char *keys, int size) {
 		}
 	}
 
-	printf("DEBUGGING CVONTRAINT LIST\n\n");
-	print_constraint_lists();
+	// printf("DEBUGGING CVONTRAINT LIST\n\n");
+	// print_constraint_lists();
 
 	
 	return 1;
@@ -747,93 +747,93 @@ void solve(const char *initial_state, const char *keys, int size) {
 	int least_val;
 	for(int i = 0; i < length; i++) {
 		for(int j = 0; j < length; j++) {
-			if(i ==0 && j ==1){
-				printf("PLEASE!!!\n");
-				print_constraint_lists();
-				printf("\n\n\n");
-			}
+			// if(i ==0 && j ==1){
+			// 	printf("PLEASE!!!\n");
+			// 	print_constraint_lists();
+			// 	printf("\n\n\n");
+			// }
 			if(top_key[j] == length) {
 				for(int y = 0; y < length; y++) {
 					board[y][j] = y + 1 + '0';
 					constraint_list[y][j][0] =  y + 1;
-					printf("Test 1\n");
-					clear_constraints(y, j);
-					print_constraint_lists();
+					// printf("Test 1\n");
+					// clear_constraints(y, j);
+					// print_constraint_lists();
 				}
-				current_board();
+				// current_board();
 			}
 			
 			if(top_key[j] == 1) {
 				board[0][j] = length + '0';
 				constraint_list[0][j][0] = length;
 				
-				printf("Test 2, row: %d, col: %d\n", i, j);
+				// printf("Test 2, row: %d, col: %d\n", i, j);
 				clear_constraints(0, j);
-				current_board();
-				print_constraint_lists();
+				// current_board();
+				// print_constraint_lists();
 			}
 			if(bottom_key[j] == length) {
 				for(int y = length - 1; y >= 0; y--) {
 					board[y][j] = length - y + '0';
 					constraint_list[y][j][0] =  length - y;
-					printf("Test 3\n");
+					// printf("Test 3\n");
 					clear_constraints(y, j);
-					print_constraint_lists();
+					// print_constraint_lists();
 				}
-				current_board();
+				// current_board();
 			}
 			if(bottom_key[j] == 1) {
 				board[length - 1][j] = length + '0';
 				constraint_list[length - 1][j][0] =  length;
-				printf("Test 4, row: %d, col: %d\n", i, j);
-				// clear_constraints(length - 1, j);
-				current_board();
-				print_constraint_lists();
+				// printf("Test 4, row: %d, col: %d\n", i, j);
+				clear_constraints(length - 1, j);
+				// current_board();
+				// print_constraint_lists();
 			}
 			if(left_key[i] == length) {
 				for(int y = 0; y < length; y++) {
 					board[i][y] = y + 1 + '0';
 					constraint_list[i][y][0] =  y + 1;
-					printf("Test 5\n");
+					// printf("Test 5\n");
 					clear_constraints(i, y);
-					print_constraint_lists();
+					// print_constraint_lists();
 				}
-				current_board();
+				// current_board();
 			}
 			if(left_key[i] == 1) {
 				board[i][0] = length + '0';
 				constraint_list[i][0][0] =  length;
-				printf("Test 6\n");
+				// printf("Test 6\n");
 				clear_constraints(i, 0);
-				current_board();
-				print_constraint_lists();
+				// current_board();
+				// print_constraint_lists();
 			}
 			if(right_key[i] == length) {
 				for(int y = length - 1; y >= 0; y--) {
 					board[i][y] = length - y + '0';
 					constraint_list[i][y][0] =  length - y;
-					printf("Test 7\n");
+					// printf("Test 7\n");
 					clear_constraints(i, y);
-					print_constraint_lists();
+					// print_constraint_lists();
 				}
-				current_board();
+				// current_board();
 			}
 			if(right_key[i] == 1) {
 				board[i][length - 1] = length + '0';
 				constraint_list[i][length - 1][0] =  length;
-				printf("Test 8\n");
+				// printf("Test 8\n");
 				clear_constraints(i, length - 1);
-				current_board();
-				print_constraint_lists();
+				// current_board();
+				// print_constraint_lists();
 			}
 			
 			if(board[i][j] == '-') {
 				least_val = min(get_constraint(top_key[j], i), get_constraint(bottom_key[j], length - 1 - i), 
 				get_constraint(left_key[i], j), get_constraint(right_key[i], length -1 - j));
 				// printf("%d\n", least_val);
-				if(i ==0 && j ==0) {
-					printf("Least Val: %d\n\n\n\n\n\n", least_val);
-				}
+				// if(i ==0 && j ==0) {
+				// 	printf("Least Val: %d\n\n\n\n\n\n", least_val);
+				// }
 				if(least_val > length){
 					continue;
 				}
@@ -843,38 +843,51 @@ void solve(const char *initial_state, const char *keys, int size) {
 						constraint_list[i][j][l++] = k;
 					}
 				}
-				if(i == 0 && j == 4){
-					printf("START DEBUG!!!: \n\n\n\n\n");
-					print_constraint_lists();
-				}
-				if(i == 0 && j == 2){
-					printf("END DEBUG!!!: int val: %d\n\n\n\n\n", least_val);
-					print_constraint_lists();
-				}
+				// if(i == 0 && j == 4){
+				// 	printf("START DEBUG!!!: \n\n\n\n\n");
+				// 	print_constraint_lists();
+				// }
+				// if(i == 0 && j == 2){
+				// 	printf("END DEBUG!!!: int val: %d\n\n\n\n\n", least_val);
+				// 	print_constraint_lists();
+				// }
 			}
 		}
 
 	}	
 
-		printf("FIRST BOARD\n\n");
-		current_board();
-		print_constraint_lists();
+	propogate_constraints();
+	elimination();
+	clue_elimination();
+	propogate_constraints();
+	elimination();
+	clue_elimination();
+	propogate_constraints();
+	elimination();
+	clue_elimination();
+	propogate_constraints();
+	elimination();
+	clue_elimination();
 
-		propogate_constraints();
-		printf("SECOND BOARD\n\n");
-		current_board();
-		print_constraint_lists();
-		current_board();
-		clue_elimination();
-		propogate_constraints();
-		elimination();
-		clue_elimination();
+		// printf("FIRST BOARD\n\n");
+		// current_board();
+		// print_constraint_lists();
+
+		// propogate_constraints();
+		// printf("SECOND BOARD\n\n");
+		// current_board();
+		// print_constraint_lists();
+		// current_board();
+		// clue_elimination();
+		// propogate_constraints();
+		// elimination();
+		// clue_elimination();
 		
 		
 
-		printf("\n\n");
-		print_constraint_lists();
-		current_board();
+		// printf("\n\n");
+		// print_constraint_lists();
+		// current_board();
 		
 	
 		// print_constraint_lists();
