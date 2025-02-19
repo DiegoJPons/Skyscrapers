@@ -733,7 +733,5 @@ void solve(const char *initial_state, const char *keys, int size) {
 		propogate_constraints();
 		elimination();
 		clue_elimination();
-		propogate_constraints();
-		elimination();
-		clue_elimination();
+		current_board();
 }
