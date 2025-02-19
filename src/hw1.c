@@ -655,7 +655,7 @@ void clue_elimination() {
 
 void solve(const char *initial_state, const char *keys, int size) {
 	initialize_board(initial_state, keys, size);
-	
+	current_board();
 	// Edge Clue Initialization
 	int least_val;
 	for(int i = 0; i < length; i++) {
