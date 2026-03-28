@@ -4,7 +4,7 @@
 #include "gtest/gtest.h"
 
 extern "C" {
-#include "hw1.h"
+#include "skyscrapers.h"
 }
 void assert_arrays_equal(char exp_array[MAX_LENGTH][MAX_LENGTH], char act_array[MAX_LENGTH][MAX_LENGTH]) {
     for (int i = 0; i < MAX_LENGTH; i++) {

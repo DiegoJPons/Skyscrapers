@@ -6,7 +6,7 @@
             "type": "cppdbg",
             "request": "launch",
             "name": "Run Game",
-            "program": "${workspaceRoot}/build/hw1_game",
+            "program": "${workspaceRoot}/build/skyscrapers_game",
             "args": ["2", "----", "12211221"],
             "cwd": "${workspaceFolder}",
             "preLaunchTask": "CMake: build"
@@ -15,7 +15,7 @@
             "type": "cppdbg",
             "request": "launch",
             "name": "Run Solver",
-            "program": "${workspaceRoot}/build/hw1_solver",
+            "program": "${workspaceRoot}/build/skyscrapers_solver",
 			"args": ["6", "-------6--------------------------2-", "000514040040302050000000"],
             "cwd": "${workspaceFolder}",
             "preLaunchTask": "CMake: build"
@@ -24,7 +24,7 @@
             "type": "cppdbg",
             "request": "launch",
             "name": "Run Solver Tests",
-            "program": "${workspaceRoot}/build/hw1_solver_tests",
+            "program": "${workspaceRoot}/build/skyscrapers_solver_tests",
             "cwd": "${workspaceFolder}",
             "preLaunchTask": "CMake: build"
         },

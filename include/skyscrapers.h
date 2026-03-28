@@ -1,5 +1,5 @@
-#ifndef __HW1_H
-#define __HW1_H
+#ifndef __skyscrapers_H
+#define __skyscrapers_H
 
 #define INFO(...) do {fprintf(stderr, "[          ] [ INFO ] "); fprintf(stderr, __VA_ARGS__); fprintf(stderr, "\n"); fflush(stderr);} while(0)
 #define ERROR(...) do {fprintf(stderr, "[          ] [ ERR  ] "); fprintf(stderr, __VA_ARGS__); fprintf(stderr, "\n"); fflush(stderr);} while(0) 
@@ -51,4 +51,4 @@ void print_possible_pieces_at_cell(int row, int column);
 */
 
 
-#endif // HW1_H
+#endif // skyscrapers_H

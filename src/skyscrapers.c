@@ -5,7 +5,7 @@
 #include <math.h>
 #include <string.h>
 
-#include "hw1.h"
+#include "skyscrapers.h"
 
 int top_key[MAX_LENGTH] = {0};
 int bottom_key[MAX_LENGTH] = {0};
